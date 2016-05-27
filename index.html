@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dormitory</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+
+
+    <!--
+        class
+        id, name
+        data-*
+        src, for, type, href
+        title, alt
+        aria-*, role
+    -->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header clearfix">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Dormitory</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="input-group">
+                                <input class="form-control" id="searchIn" type="text" placeholder="请输入宿舍号码">
+                                <span class="input-group-btn">
+                                <button class="btn btn-primary" id="searchBtn" type="button" onclick="indexClickSet.searchBtn();">搜索</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div id="checkSearchReturn"></div>
+        </div>
+
+        <div class="jumbotron">
+            <h1>Bulletin board</h1>
+            <p class="lead">
+            同学你好，欢迎使用本网站进行宿舍的选择<br> 
+            点击“Join”按钮（或“搜索”）， 进行宿舍选定，然后请在出现<br> 
+            栏目中填写相关信息，最后祝你使用愉快
+            </p>
+            <p class="lead">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group" id="chooseReturn" role="form"></div>
+                </form>
+            </p>
+            <p>
+                <button class="btn btn-lg btn-success" id="checkSubmitBtn" role="button" data-toggle="modal" data-target="#submitModal" onclick="indexClickSet.checkSubmitBtn();">Submit Immediately</button>
+            </p>
+            <!-- 模态弹出窗 -->
+            <div class="modal fade" id="submitModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" id="stopSubmitBtn"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title">系统反馈信息栏</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="checkSubmitReturn"></p>
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button " class="btn btn-default " data-dismiss="modal" id="closeSubmitBtn">关闭</button>
+                            <button type="button " class="btn btn-primary " id="submitBtn" onclick="indexClickSet.submitBtn(); ">提交</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+        </div>
+
+        <div class="row marketing ">
+            <div class="panel panel-default ">
+                <div class="panel-heading "><span class="glyphicon glyphicon-pushpin " aria-hidden="true "></span></div>
+                <div class="col-lg-12 ">
+                    <!--        <div class="panel-body "></div> -->
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr class=" ">
+                                <th><span class="glyphicon glyphicon-home " aria-hidden="true "></span> 房号</th>
+                                <th><span class="glyphicon glyphicon-user " aria-hidden="true "></span> A</th>
+                                <th><span class="glyphicon glyphicon-user " aria-hidden="true "></span> B</th>
+                                <th><span class="glyphicon glyphicon-user " aria-hidden="true "></span> C</th>
+                                <th><span class="glyphicon glyphicon-user " aria-hidden="true "></span> D</th>
+                                <th><span class="glyphicon glyphicon-comment " aria-hidden="true "></span> 备注</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataReturn" ></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer ">
+            <p>&copy; 西安交通大学电信学院 2016</p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+    <!--require 异步加载，当执行到这行下面一行（这里没有，假如有）的<script></script>未必能加载完成-->
+    <script data-main="js/indexMain.js" src="js/require.js"></script>
+
+</body>
+
+</html>
